@@ -4,7 +4,6 @@ public class Calculator {
     public int add(int a, int b){
         return a + b;
     }
-    
     public int dif(int a, int b){
         return a - b;
     }
@@ -18,7 +17,8 @@ public class Calculator {
         return a * b;
     }
     public int solver() throws Exception {
-
-        return times(div(add(119, 52), 45), 4);
+        int c = add(1,10);
+        int v = dif(c, 10);
+        return times(v,c);
     }
 }

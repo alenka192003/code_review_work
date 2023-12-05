@@ -1,24 +1,25 @@
 name: Build and Test
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '30 12 * * 3'  # Каждую среду в 12:30
+    - cron: '0 22 * * 5'   # Каждую пятницу в 22:00
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '11'  # Используйте нужную вам версию Java
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'  # Используйте нужную вам версию Java
 
-    - name: Build with Maven
-      run: mvn clean install
-on:
-  schedule:
-    - cron: '30 12 * * 3'  # Каждую среду в 12:30
-    - cron: '0 22 * * 5'   # Каждую пятницу в 22:00
+      - name: Build with Maven
+        run: mvn clean install

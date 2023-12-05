@@ -19,6 +19,6 @@ public class Calculator {
     public int solver() throws Exception {
         int c = add(1,10);
         int v = dif(c, 10);
-        return times(v,c);
+        return v;
     }
 }

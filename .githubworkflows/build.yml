@@ -18,3 +18,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean install
+on:
+  schedule:
+    - cron: '30 12 * * 3'  # Каждую среду в 12:30
+    - cron: '0 22 * * 5'   # Каждую пятницу в 22:00
